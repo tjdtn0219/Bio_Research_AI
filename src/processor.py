@@ -1,5 +1,5 @@
 from memory_repository import MemoryRepository
-from aggregator import aggregate_data
+from aggregator import merge_all_data
 import pandas as pd
 
 
@@ -12,5 +12,5 @@ def process_excel(output_path):
         return
 
     # 변경된 데이터를 집계하여 저장
-    aggregated_data = aggregate_data(list(repo.data))
+    aggregated_data = merge_all_data(list(repo.data))
     repo.save_updated_data(aggregated_data, output_path)

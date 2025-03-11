@@ -47,7 +47,6 @@ class MemoryRepository:
 
     def save_updated_data(self, data, output_path):
         """변경된 데이터를 Excel 파일로 저장"""
-        # new_data_list = list(data)  # 새로운 데이터만 리스트로 변환
         df = pd.DataFrame(
             data,
             columns=["company_name", "brand_name", "inn_name", "code_name"],
