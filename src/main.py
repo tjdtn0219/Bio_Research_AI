@@ -1,9 +1,10 @@
 from processor import process_excel
 
 if __name__ == "__main__":
-    output_file = "data/Organized_Drug_Profile.xlsx"
+    output_file = "data/aggregated_drug_file.xlsx"
 
-    print("======== 실행 중 ========")
+    print("======프로그램 시작======")
 
     process_excel(output_file)
-    print(f"✅ 파일이 성공적으로 저장되었습니다: {output_file}")
+
+    print("======프로그램 종료======")
