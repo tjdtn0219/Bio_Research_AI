@@ -19,7 +19,6 @@ class TestAggregator(unittest.TestCase):
                 "code_name": "CodeA__CodeB",
             }
         ]
-        # result, updated = aggregate_data_1(data)
         result = merge_all_data(data)
         self.assertEqual(result, expected)
 
@@ -62,8 +61,6 @@ class TestAggregator(unittest.TestCase):
             },
         ]
         result = merge_all_data(data)
-        print("test_no_merge_different_companies_result", result)
-        print("test_no_merge_different_companies_expected", expected)
         self.assertEqual(result, expected)
 
     def test_edge_case_empty_values(self):

@@ -9,9 +9,9 @@ class MemoryRepository:
         previous_data_path="data/prev_drug_file.xlsx",
     ):
         """메모리 DB (이전 데이터 비교 후 새로운 데이터만 저장)"""
-        self.data = set()  # 새로운 데이터 저장소
+        self.data = set()
         self.previous_data_path = previous_data_path
-        self.previous_data = set()  # 이전 데이터 저장소
+        self.previous_data = set()
 
         # 기존 데이터 불러오기
         if os.path.exists(previous_data_path):
@@ -30,7 +30,7 @@ class MemoryRepository:
                 row["inn_name"],
                 row["code_name"],
             )
-            self.previous_data.add(key)  # 기존 데이터 저장
+            self.previous_data.add(key)
 
     def load_new_data(self, file_path):
         """현재 데이터를 읽고, 이전 데이터에 없는 새로운 데이터만 저장"""
@@ -43,7 +43,7 @@ class MemoryRepository:
                 row["code_name"],
             )
             if key not in self.previous_data:
-                self.data.add(key)  # 새로운 데이터만 저장
+                self.data.add(key)
 
     def save_updated_data(self, data, output_path):
         """변경된 데이터를 Excel 파일로 저장"""
@@ -54,7 +54,7 @@ class MemoryRepository:
         df.to_excel(output_path, index=False)
 
         # 새로운 데이터를 previous_drug_file.xlsx에 추가
-        all_data = list(self.previous_data | self.data)  # 기존 데이터 + 새로운 데이터
+        all_data = list(self.previous_data | self.data)
         prev_df = pd.DataFrame(
             all_data, columns=["company_name", "brand_name", "inn_name", "code_name"]
         )

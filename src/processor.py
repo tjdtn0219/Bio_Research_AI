@@ -6,7 +6,7 @@ import time
 
 def process_excel(output_path):
     """새로운 데이터만 저장"""
-    repo = MemoryRepository()  # 변경된 데이터만 저장됨
+    repo = MemoryRepository()
 
     if not repo.data:
         print("데이터의 변경사항이 없습니다.")
